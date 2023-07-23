@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speaker</title>
+    <style>
+        body{
+            text-align: center;
+            background: linear-gradient(to left,#000,#111,darkblue,blue);
+        }
+        textarea{
+            margin-top: 15px;
+            width: 70%;
+            height: 500px;
+            outline: none;
+            background: linear-gradient(to bottom,lightblue,#8587ff99);
+            border-radius: 15px;
+            padding: 8px;
+            color:midnightblue;
+            text-decoration: none;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            letter-spacing: 1px;
+            font-style:initial;
+            font-size: 25px;
+            white-space: pre-wrap;
+        }
+        button{
+            text-align: center;
+            margin-top: 21px;
+            font-size: 25px;
+            padding: 8px;
+            height: 60px;
+            backface-visibility: visible;
+            background: none;
+            backdrop-filter:blur(20000px);
+            border: none;
+            outline: none;
+            border-radius: 10px;
+            width: 72%;
+            color: #999;
+            letter-spacing: 6px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            cursor: pointer;
+            transition: 0.1s;
+        }
+        button:active{
+            scale:0.975;
+            rotate:0.1deg;
+        }
+        button:after{
+            background: midnightblue;
+            color: #999;
+        }
+        button::before{
+            background: #999;
+            color:midnightblue;
+        }
+    </style>
+</head>
+<body>
+ <textarea id="text" placeholder="Text..."></textarea>
+    <br>
+    <button onclick="speak()">SPEAK TEXT</button>
+    <a href="5.html" download=speaker.html><button> DOWNLOAD </button></a>
+    <script>
+    function speak(){
+    let speech = new SpeechSynthesisUtterance()
+    speech.lang = "en";
+    speech.text = document.getElementById("text").value   
+    speechSynthesis.speak(speech)
+    }
+    </script>
+</body>
+</html>
